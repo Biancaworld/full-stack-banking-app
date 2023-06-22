@@ -1,0 +1,160 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Banking App",
+        "Description": "Banking Application API",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Bank",
+            "description": "API for users in the system"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/account/findOne/{email}":{
+            "parameters": [
+                {
+                    "name": "email",
+                    "in": "path",
+                    "required": true,
+                    "description": "Email of the account",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tag": ["account"],
+                "summary": "Get a user in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/account"
+                        }
+                    }
+                }
+
+            }
+        },
+        "/account/all":{
+            "get": {
+                "tag": ["account"],
+                "summary": "Get all users in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/account"
+                        }
+                    }
+                }
+
+            }
+        },
+        "/account/login/{email}/{password}":{
+            "parameters": [
+                {
+                    "name": "email",
+                    "in": "path",
+                    "required": true,
+                    "description": "Email of the account",
+                    "type": "string"
+                },
+                {
+                    "name": "password",
+                    "in": "path",
+                    "required": true,
+                    "description": "Password of the account",
+                    "type": "string"
+                }
+            ],
+            "post": {
+                "tag": ["account"],
+                "summary": "Login user into system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/account"
+                        }
+                    }
+                }
+
+            }
+        },
+        "/account/create/{name}/{email}/{uid}":{
+            "parameters": [
+                {
+                    "name": "name",
+                    "in": "path",
+                    "required": true,
+                    "description": "Name of the account",
+                    "type": "string"
+                },
+                {
+                    "name": "email",
+                    "in": "path",
+                    "required": true,
+                    "description": "Email of the account",
+                    "type": "string"
+                },
+                {
+                    "name": "uid",
+                    "in": "path",
+                    "required": true,
+                    "description": "User id from firebase",
+                    "type": "string"
+                }
+            ],
+            "post": {
+                "tag": ["account"],
+                "summary": "Create account for the system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/account"
+                        }
+                    }
+                }
+
+            }
+        }
+    },
+
+    "definitions": {
+        "account": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "uid": {
+                    "type": "string"
+                },
+                "balance": {
+                    "type": "number"
+                }
+
+
+            }
+        
+        }
+    }
+
+
+}
