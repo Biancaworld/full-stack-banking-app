@@ -22,5 +22,8 @@
   },
   "bin": {
     "execute": "server.js"
+  },
+  "engines": {
+    "node": ">18"
   }
 }
