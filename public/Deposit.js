@@ -38,12 +38,12 @@ function DepositForm() {
   getData();
 
   function handle() {
-      fetch(`/account/update/${email}/${amount}`);
+      fetch(`https://banking-app-3ov2.onrender.com/account/update/${email}/${amount}`);
       getData();
   }
 
   function getData(){
-    fetch(`/account/findOne/${email}`)
+    fetch(`https://banking-app-3ov2.onrender.com/account/findOne/${email}`)
     .then(response => response.text())
     .then(text => {
         try {

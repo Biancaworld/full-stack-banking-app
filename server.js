@@ -16,9 +16,7 @@ const swaggerOptions = {
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 // used to serve static files from public directory
 app.use(express.static('public'));
-app.use(cors({
-    origin: ["http://localhost:3000", "https://banking-app-3ov2.onrender.com"]
-}) );
+app.use(cors());
 
 // create user account
 app.get('/account/create/:name/:email/:uid', function (req, res) {

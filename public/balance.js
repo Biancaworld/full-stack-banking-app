@@ -13,7 +13,7 @@ function BalanceForm(props) {
   const email = ctx.user.email;
   const [balance, setBalance] = React.useState(0);  
 
-  fetch(`/account/findOne/${email}`)
+  fetch(`https://banking-app-3ov2.onrender.com/account/findOne/${email}`)
   .then(response => response.text())
   .then(text => {
       try {
