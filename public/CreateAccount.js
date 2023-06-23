@@ -43,7 +43,8 @@ function CreateForm(props) {
       var user = firebase.auth().currentUser;
       ctx.user.email = user.email;
       var uid = user.uid; 
-      const url = `/account/create/${name}/${email}/${uid}`;
+      console.log(name);
+      const url = `https://banking-app-3ov2.onrender.com/account/create/${name}/${email}/${uid}`;
       (async () => {
           var res  = await fetch(url);
           var data = await res.json();    

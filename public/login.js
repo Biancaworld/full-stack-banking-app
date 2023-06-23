@@ -53,7 +53,7 @@ function LoginForm(props) {
         ctx.user.email = user.email;
         console.log(ctx);
         // check if user exists in mongodb
-        fetch(`/account/findOne/${user.email}`)
+        fetch(`https://banking-app-3ov2.onrender.com/account/findOne/${user.email}`)
           .then(response => response.text())
           .then(text => {
               try {
@@ -64,7 +64,7 @@ function LoginForm(props) {
                 var userEmail = user.email; 
                 var uid = user.uid; 
                 // mongodb
-                const url = `/account/create/${displayName}/${userEmail}/${uid}`;
+                const url = `https://banking-app-3ov2.onrender.com/account/create/${displayName}/${userEmail}/${uid}`;
                 (async () => {
                     var res  = await fetch(url);
                     var data = await res.json();    

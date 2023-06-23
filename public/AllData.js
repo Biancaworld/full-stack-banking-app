@@ -6,7 +6,7 @@ function Table() {
   const [data, setData] = React.useState([]);    
 
   React.useEffect(() => {
-      fetch('/account/all')
+      fetch('https://banking-app-3ov2.onrender.com/account/all')
           .then(response => response.json())
           .then(data => {
               console.log(data);
